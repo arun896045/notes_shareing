@@ -1,0 +1,44 @@
+ {% extends "admin_nav.html" %} 
+ {% load static %}
+ {% block body %}
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script> 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+ <script src=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <script src="https://cdn.datatables.net/2.3.5/js/dataTables.js"></script> 
+ <script src="https://cdn.datatables.net/2.3.5/js/dataTables.bootstrap4.js"></script> 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+ <link rel="stylesheet" href="https://cdn.datatables.net/2.3.5/css/dataTables.bootstrap4.css">
+<script>
+ new DataTable('#example');
+</script>
+
+
+  <div class="container mt-3">
+<h4 class="text-center text-danger">VIEWS USERS</h4>
+<hr>
+<table class="table table=bordered" id="example">
+<thead>
+    <tr>
+        <th>Sr. No.</th>
+        <th>FullName</th>
+        <th>EmailId</th>
+        <th>Contact</th>
+        <th>Branch</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+    {% for i in users %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+        <td>{{i.user.username}}</td>
+        <td>{{i.contact}}</td>
+        <td>{{i.branch}}</td>
+        <td>{{i.role}}</td>  
+        <td><button class="btn btn-danger"><a href="{% url 'delete_user' i.id %}" onclick="return confirm('Are you sure ?')">Delete</a></button></td>
+    </tr>
+    {% endfor  %}
+</thead>
+</table>
+</div>
+ {% endblock body %}

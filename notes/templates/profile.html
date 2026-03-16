@@ -1,0 +1,44 @@
+{% extends "usernavigation.html" %}
+{% load static %} 
+{% block body %}
+<div class="container mt-3">
+    <h4 class="text-center text-danger">View Profile</h4>
+    <hr>
+    <div class="row m-0">
+        <div class="col-sm-6">
+            <b>Full Name:</b>
+        </div>
+        <div class="col-sm-6" style="text-transform: capitalize;" >
+            <p>{{data.user.first_name }} {{data.user.last_name}}</p>
+        </div>
+    </div>
+    <hr class="m-0">
+     <div class="row m-0">
+        <div class="col-sm-6">
+            <b>Email ID:</b>
+        </div>
+        <div class="col-sm-6" >
+            <p>{{data.user.username }} </p>
+        </div>
+    </div>
+    <hr class="m-0" >
+     <div class="row m-0">
+        <div class="col-sm-6">
+            <b>Contact:</b>
+        </div>
+        <div class="col-sm-6">
+            <p>{{data.contact}}</p>
+        </div>
+    </div>
+    <hr class="m-0 ">
+     <div class="row m-0">
+        <div class="col-sm-6">
+            <b>Branch:</b>
+        </div>
+        <div class="col-sm-6">
+            <p>{{data.branch }}</p>
+        </div>
+    </div>
+    <a href="{% url 'edit_pro' %}" class="btn btn-primary">Edit Profile</a>
+</div>
+{% endblock %}

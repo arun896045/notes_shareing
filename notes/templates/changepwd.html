@@ -1,0 +1,37 @@
+ {% extends "usernavigation.html" %} 
+ {% load static %}
+ {% block body %}
+ {% if error == "no" %}
+<script>
+alert('password changed Successfully');
+window.location=("{% url 'logout' %}");
+</script>
+{% endif %}
+{% if error == "yes" %}
+<script>
+    alert('Invalid Login Credentials,Try Again');
+    </script>
+{% endif %}
+
+  <div class="container mt-5">
+    <div class="row">
+         <div class="col-sm-6 pt-4">
+            <img src="{% static 'images/pwd.webp' %}" alt="" width="450" height="300">
+         </div>
+         <div class="col-sm-6 ">
+            <h4 class="text-center" >CHANGE PASSWORD</h4>
+            <hr>
+           <form  method="POST">
+            {% csrf_token %}
+             <label >Old Password</label>
+             <input type="password" class="form-control" placeholder="Enter old password" name="old">
+              <label > New Password</label>
+           <input type="password" class="form-control" placeholder="Enter new  Password" name="new">
+           <label > Confirm Password</label>
+            <input type="password" class="form-control" placeholder="Enter confirm  Password" name="confirm">
+              <input type="submit" class="btn btn-danger mt-2" value="LOGIN">
+           </form>
+        </div>
+    </div>
+</div>
+ {% endblock body %}

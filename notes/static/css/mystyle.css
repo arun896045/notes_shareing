@@ -1,0 +1,46 @@
+.nav-link{
+    color: black;
+}
+.nav-link:hover{
+    color:yellow;
+    font-weight:bold ;
+    background-color: red;
+    border-radius: 10px;
+}
+.transparentbox{
+    width:100%;
+    height:470px;
+    border:1px solid #cd853f;
+    background-color: lightgray;
+    opacity: 0.4;
+}
+.transparentbox p{
+    margin-top: 10%;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Monotype Corsiva;
+    color:darkred;
+    text-align:center
+}
+.halfcircle{
+    width: 110px;
+    height:55px;
+    background:green;
+    border-radius: 120px 120px 0 0;
+    margin: 0px;
+}
+.halfcirclebutton{
+    width: 110px;
+    height:55px;
+    background:darkslategray;
+    border-radius:  0 0 120px 120px ;
+    margin:0px;
+}
+.box1 p{
+    font-weight: bold;
+    color:white;
+    font-family: Monotype Corsiva;
+    text-align:center;
+    ;
+}
+

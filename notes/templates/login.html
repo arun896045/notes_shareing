@@ -1,0 +1,42 @@
+{% extends 'nvigate.html' %}
+{% load static %}
+{% block body %}
+{% if error == "no" %}
+<script>
+alert('Logged In Successfully');
+window.location=("{% url 'profile' %}");
+</script>
+{% endif %}
+{% if error == "yes" %}
+<script>
+    alert('Invalid Login Credentials,Try Again');
+    </script>
+{% endif %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2 class="text-center" >New Customers</h2>
+            <hr>
+            <p>
+                By Creating an account with our website , u 
+                will be able to move through the notes Upload
+                and downloading process and more...
+            </p>
+           <center> <a href="{% url 'signup' %}" class="btn btn-danger text-white  mt-5">CREATE AN ACCOUNT</a></center>
+        </div>
+         <div class="col-sm-6">
+            <h4 class="text-center" >USER LOGIN</h4>
+            <hr>
+           <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+             <label for="">UserName</label>
+             <input type="email" class="form-control" placeholder="Enter email" name="emailId">
+              <label for="">Password</label>
+              <input type="password" class="form-control" placeholder="Enter Password" name="pwd">
+              <input type="submit" class="btn btn-danger mt-2" value="LOGIN">
+           </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}
